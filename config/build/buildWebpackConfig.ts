@@ -1,9 +1,9 @@
 import webpack from 'webpack';
-import { BuildOptions } from './types/config';
 import { buildLoaders } from './buildLoaders';
 import { buildResolvers } from './buildResolvers';
 import { buildPlugins } from './buildPlugins';
 import { buildDevServer } from './buildDevServer';
+import { BuildOptions } from './types/config';
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
 	const { mode, paths, isDev } = options;
@@ -16,7 +16,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
 			clean: true,
 		},
 		module: {
-			rules: buildLoaders(),
+			rules: buildLoaders(options),
 		},
 		plugins: buildPlugins(options),
 		resolve: buildResolvers(),
@@ -24,4 +24,3 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
 		devServer: isDev ? buildDevServer(options) : undefined,
 	};
 }
- 
