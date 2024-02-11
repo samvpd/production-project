@@ -34,6 +34,7 @@ module.exports = {
         'object-curly-newline': 'off',
         'i18next/no-literal-string': ['error', { markupOnly: true }],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
+        'react/jsx-wrap-multilines': 'off',
     },
     globals: {
         __IS_DEV__: true,
