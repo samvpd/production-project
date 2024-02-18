@@ -7,17 +7,13 @@ export enum ThemeButton {
     CLEAR = 'clear',
 }
 
-interface ButtonProps
-    extends PropsWithChildren,
-        ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends PropsWithChildren, ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ThemeButton;
 }
 
 export const Button: FC<ButtonProps> = (props) => {
-    const {
-        className, theme, children, ...otherProps
-    } = props;
+    const { className, theme, children, ...otherProps } = props;
     return (
         <button
             type="button"
